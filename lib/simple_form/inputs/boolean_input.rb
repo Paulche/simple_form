@@ -56,6 +56,11 @@ module SimpleForm
         @builder.hidden_field(attribute_name, options)
       end
 
+      def html_options_for(namespace, css_classes)
+        css_classes.delete('form-control')
+        super(namespace, css_classes)
+      end
+
       def inline_label
         inline_option = options[:inline_label]
         inline_option == true ? label_text : inline_option
